@@ -10,13 +10,14 @@ class VentanaPrincipal(QMainWindow):
     def __init__(self):
         super(VentanaPrincipal, self).__init__()
         loadUi('C:\Escritorio\DAVID\VS_Code\Proyecto\Proyecto\mante.ui',self)
+        self.provf=0
         
 
         self.bt_menu.clicked.connect(self.mover_menu)
 
         self.base_datos = Comunicacion()
 
-        self.bt_minimizar.clicked.connect(self.control_bt_normal)
+        self.bt_minimizar.clicked.connect(self.control_bt_minimizar)
         self.bt_colapsar.clicked.connect(self.control_bt_normal)
         self.bt_cerrar.clicked.connect(lambda: self.close())
     
@@ -55,11 +56,17 @@ class VentanaPrincipal(QMainWindow):
         self.gripSize=10
         self.grip=QtWidgets.QSizeGrip(self)
         self.grip.resize(self.gripSize,self.gripSize)
+
     def control_bt_minimizar(self):
         self.showMinimized()
 
-    def control_bt_normal(self):
-        self.showNormal()
+    def control_bt_normal(self,provf):
+        if self.provf ==0:
+            self.showNormal()
+            self.provf=1
+        else:
+            self.showMaximized()
+            self.provf=0
     def control_bt_maximizar(self):
         self.showMaximized()
     ### SizeGrip
@@ -81,18 +88,19 @@ class VentanaPrincipal(QMainWindow):
             self.showNormal()
     def mover_menu(self):
         if True:
-            width=self.frame_control.width()
+            width=self.frame_menu.width()
             normal=0
             if width==0:
-                extender=200
+                extender=300
             else:
-                etender=normal
-            self.animacion=QPropertyAnimation(self.frame_control,b'minimumWidth')
+                extender=normal
+            self.animacion=QPropertyAnimation(self.frame_menu,b'minimumWidth')
             self.animacion.setDuration(300)
             self.animacion.setStartValue(width)
             self.animacion.setEndValue(extender)
             self.animacion.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
             self.animacion.start()
+
     def registrar_mantenimiento(self):
         codigo =self.reg_codigo.text().upper()
         nombre =self.reg_nombre.text().upper()
