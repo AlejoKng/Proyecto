@@ -33,13 +33,14 @@ class Comunicacion():
         cursor.execute(bd)
         self.conexion.commit()    
         cursor.close()
-        return nom   
-    def actualiza_productos(self, codigo, nombre, modelo, precio, cantidad):
-    cur = self.conexion.cursor()
-    sql ='''UPDATE productos SET  CODIGO =' {}' , MODELO = '{}', PRECIO = '{}', CANTIDAD = '{}'
-    WHERE NOMBRE = '{}' '''.format(codigo,  modelo, precio, cantidad, nombre)
-    cur.execute(sql)
-    act = cur.rowcount
-    self.conexion.commit()    
-    cur.close()
-    return act
+
+
+    def actualiza_productos(self,Id ,codigo, nombre, modelo, precio, cantidad):
+        cursor = self.conexion.cursor()
+        bd ='''UPDATE tabla_datos SET  CODIGO =' {}' , NOMBRE = '{}', MODELO = '{}', PRECIO = '{}', CANTIDAD = '{}'
+        WHERE ID = '{}' '''.format(codigo, nombre,  modelo, precio, cantidad, Id)
+        cursor.execute(bd)
+        a = cursor.rowcount
+        self.conexion.commit()    
+        cursor.close()
+        return a
