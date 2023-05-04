@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>805</width>
-    <height>747</height>
+    <width>905</width>
+    <height>537</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_14">
+   <layout class="QVBoxLayout" name="verticalLayout_12">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -53,15 +53,22 @@
        </property>
        <item>
         <widget class="QFrame" name="frame_superior">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>42</height>
+           <height>100</height>
           </size>
          </property>
          <property name="styleSheet">
           <string notr="true">QFrame{
-	
+	font: 30pt &quot;Old English Text MT&quot;;
+	font: 30pt &quot;Bauhaus 93&quot;;
 	background-color: rgb(255, 255, 255);
 }
 QPushButton{
@@ -95,6 +102,13 @@ QPushButton:hover{
               <width>38</width>
               <height>38</height>
              </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_19">
+            <property name="text">
+             <string>GoEngine</string>
             </property>
            </widget>
           </item>
@@ -195,15 +209,15 @@ QPushButton:hover{
 }
 QPushButton{
 	background-color: rgb(61, 61, 61);
-	border-top-left-radius:20px;
-	border-bottom-left-radius:20px;
+	border-top-left-radius:30px;
+	border-bottom-left-radius:30px;
 	color: rgb(255, 255, 255);
 	font: 77 10pt &quot;Arial Black&quot;;
 }
 QPushButton:hover{
 	background-color:white;
-	border-top-left-radius:20px;
-	border-bottom-left-radius:20px;
+	border-top-left-radius:30px;
+	border-bottom-left-radius:30px;
 	color: rgb(0,0,0);
 	font: 77 10pt &quot;Arial Black&quot;;
 }
@@ -218,10 +232,13 @@ QPushButton:hover{
             <layout class="QVBoxLayout" name="verticalLayout_3">
              <item>
               <widget class="QPushButton" name="bt_database">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>40</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="text">
@@ -241,10 +258,13 @@ QPushButton:hover{
              </item>
              <item>
               <widget class="QPushButton" name="bt_registrar">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>40</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="text">
@@ -267,7 +287,7 @@ QPushButton:hover{
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>40</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="text">
@@ -290,7 +310,7 @@ QPushButton:hover{
                <property name="minimumSize">
                 <size>
                  <width>0</width>
-                 <height>40</height>
+                 <height>60</height>
                 </size>
                </property>
                <property name="text">
@@ -309,24 +329,63 @@ QPushButton:hover{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="bt_program">
-               <property name="minimumSize">
+              <spacer name="verticalSpacer_5">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
                 <size>
-                 <width>0</width>
+                 <width>20</width>
                  <height>40</height>
                 </size>
                </property>
+              </spacer>
+             </item>
+             <item alignment="Qt::AlignRight">
+              <widget class="QPushButton" name="bt_ingreso">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>40</horstretch>
+                 <verstretch>40</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton{
+	background-color: rgb(61, 61, 61);
+	border-top-left-radius:20px;
+	border-bottom-left-radius:20px;
+	border-top-right-radius:20px;
+	border-bottom-right-radius:20px;
+	color: rgb(255, 255, 255);
+	font: 77 10pt &quot;Arial Black&quot;;
+}
+QPushButton:hover{
+	background-color:white;
+	border-top-left-radius:20px;
+	border-bottom-left-radius:20px;
+	border-top-right-radius:20px;
+	border-bottom-right-radius:20px;
+	color: rgb(0,0,0);
+	font: 77 10pt &quot;Arial Black&quot;;
+}</string>
+               </property>
                <property name="text">
-                <string>PROGRAMACIÓN</string>
+                <string/>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>descargar.png</normaloff>descargar.png</iconset>
+                 <normaloff>avatar.png</normaloff>avatar.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
-                 <width>30</width>
-                 <height>30</height>
+                 <width>25</width>
+                 <height>20</height>
                 </size>
                </property>
               </widget>
@@ -412,12 +471,12 @@ QTableWidgetQTableCornerButton::section{
              </property>
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
-               <widget class="QWidget" name="page_eliminar">
-                <layout class="QVBoxLayout" name="verticalLayout">
+               <widget class="QWidget" name="page_base_datos">
+                <layout class="QVBoxLayout" name="verticalLayout_5">
                  <item>
-                  <widget class="QLabel" name="label_4">
+                  <widget class="QLabel" name="label">
                    <property name="text">
-                    <string>Eliminar</string>
+                    <string>Trabajos de Mantenimiento</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -425,255 +484,61 @@ QTableWidgetQTableCornerButton::section{
                   </widget>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_10">
-                   <item>
-                    <widget class="QLabel" name="label_17">
-                     <property name="text">
-                      <string>Numero de Orden</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="lineEdit_12"/>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="bt_pgElim_consul">
-                     <property name="minimumSize">
-                      <size>
-                       <width>120</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Consultar</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <widget class="QTableWidget" name="tabla_OT_pgElim"/>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_6">
-                   <item>
-                    <widget class="QLabel" name="label_23">
-                     <property name="text">
-                      <string>Eliminar Registro</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_7">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="bt_pgElim_save">
-                     <property name="minimumSize">
-                      <size>
-                       <width>120</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>Guardar</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                </layout>
-               </widget>
-               <widget class="QWidget" name="page_actualizar">
-                <layout class="QVBoxLayout" name="verticalLayout_11">
-                 <item>
-                  <widget class="QLabel" name="label_16">
-                   <property name="text">
-                    <string>Actualizar</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
+                  <widget class="QTableWidget" name="tabla_OT_pgBD">
+                   <column>
+                    <property name="text">
+                     <string>Placa</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Conductor</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Marca</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Kilometraje</string>
+                    </property>
+                   </column>
                   </widget>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_9">
+                  <layout class="QHBoxLayout" name="horizontalLayout_3">
                    <item>
-                    <widget class="QLabel" name="label_15">
-                     <property name="text">
-                      <string>Numero de Orden</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <widget class="QLineEdit" name="txb_pgAct_NOrd"/>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="bt_pgAct_consul">
-                     <property name="minimumSize">
-                      <size>
-                       <width>120</width>
-                       <height>30</height>
-                      </size>
-                     </property>
-                     <property name="text">
-                      <string>CONSULTAR</string>
-                     </property>
-                    </widget>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <spacer name="verticalSpacer_3">
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                   <property name="sizeType">
-                    <enum>QSizePolicy::Minimum</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>20</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_7">
-                   <item>
-                    <layout class="QVBoxLayout" name="verticalLayout_9">
-                     <item>
-                      <widget class="QLabel" name="label_9">
-                       <property name="text">
-                        <string>Placa</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_10">
-                       <property name="text">
-                        <string>Fecha</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_11">
-                       <property name="text">
-                        <string>Kilometraje</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_12">
-                       <property name="text">
-                        <string>Trabajo</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_13">
-                       <property name="text">
-                        <string>Repuestos</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <layout class="QVBoxLayout" name="verticalLayout_10">
-                     <item>
-                      <widget class="QLineEdit" name="txb_pgAct_plac"/>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="txb_pgAct_fech"/>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="txb_pgAct_km"/>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="txb_pgAct_trab"/>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="txb_pgAct_rep"/>
-                     </item>
-                    </layout>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_6">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeType">
-                      <enum>QSizePolicy::Minimum</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>20</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                  </layout>
-                 </item>
-                 <item>
-                  <spacer name="verticalSpacer_4">
-                   <property name="orientation">
-                    <enum>Qt::Vertical</enum>
-                   </property>
-                   <property name="sizeType">
-                    <enum>QSizePolicy::Minimum</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>20</width>
-                     <height>40</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_8">
-                   <item>
-                    <widget class="QLabel" name="label_14">
-                     <property name="text">
-                      <string>Guardar Cambios</string>
-                     </property>
-                    </widget>
-                   </item>
-                   <item>
-                    <spacer name="horizontalSpacer_5">
-                     <property name="orientation">
-                      <enum>Qt::Horizontal</enum>
-                     </property>
-                     <property name="sizeHint" stdset="0">
-                      <size>
-                       <width>40</width>
-                       <height>20</height>
-                      </size>
-                     </property>
-                    </spacer>
-                   </item>
-                   <item>
-                    <widget class="QPushButton" name="bt_pgAct_save">
-                     <property name="minimumSize">
-                      <size>
-                       <width>120</width>
-                       <height>30</height>
-                      </size>
-                     </property>
+                    <widget class="QLabel" name="label_18">
                      <property name="text">
                       <string>Actualizar</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_2">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="bt_pgBD_refrescar">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>REFRESCAR</string>
                      </property>
                     </widget>
                    </item>
@@ -685,6 +550,12 @@ QTableWidgetQTableCornerButton::section{
                 <layout class="QVBoxLayout" name="verticalLayout_8">
                  <item>
                   <widget class="QLabel" name="label_7">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>80</height>
+                    </size>
+                   </property>
                    <property name="font">
                     <font>
                      <family>Arial Black</family>
@@ -698,7 +569,7 @@ QTableWidgetQTableCornerButton::section{
                     <string notr="true">font: 87 16pt &quot;Arial Black&quot;;</string>
                    </property>
                    <property name="text">
-                    <string>Registro de mantenimientos</string>
+                    <string>Adicionar Trabajos Nuevos</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -709,6 +580,9 @@ QTableWidgetQTableCornerButton::section{
                   <spacer name="verticalSpacer_2">
                    <property name="orientation">
                     <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Fixed</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
@@ -728,35 +602,21 @@ QTableWidgetQTableCornerButton::section{
                      <item>
                       <widget class="QLabel" name="label_2">
                        <property name="text">
-                        <string>Codigo</string>
+                        <string>Acción</string>
                        </property>
                       </widget>
                      </item>
                      <item>
                       <widget class="QLabel" name="label_6">
                        <property name="text">
-                        <string>Fecha</string>
+                        <string>Nombre Trabajo</string>
                        </property>
                       </widget>
                      </item>
                      <item>
                       <widget class="QLabel" name="label_5">
                        <property name="text">
-                        <string>Kilometraje</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_1">
-                       <property name="text">
-                        <string>Trabajo</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_3">
-                       <property name="text">
-                        <string>Repuestos</string>
+                        <string>Tipo de mantenimiento</string>
                        </property>
                       </widget>
                      </item>
@@ -788,27 +648,7 @@ QTableWidgetQTableCornerButton::section{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="txb_pgReg_km">
-                       <property name="minimumSize">
-                        <size>
-                         <width>40</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
                       <widget class="QLineEdit" name="txb_pgReg_trab">
-                       <property name="minimumSize">
-                        <size>
-                         <width>40</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="txb_pgReg_rep">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
@@ -880,13 +720,12 @@ QTableWidgetQTableCornerButton::section{
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="page_program"/>
-               <widget class="QWidget" name="page_base_datos">
-                <layout class="QVBoxLayout" name="verticalLayout_5">
+               <widget class="QWidget" name="page_actualizar">
+                <layout class="QVBoxLayout" name="verticalLayout_11">
                  <item>
-                  <widget class="QLabel" name="label">
+                  <widget class="QLabel" name="label_16">
                    <property name="text">
-                    <string>Ordenes de Trabajo</string>
+                    <string>Modificar</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -894,45 +733,157 @@ QTableWidgetQTableCornerButton::section{
                   </widget>
                  </item>
                  <item>
-                  <widget class="QTableWidget" name="tabla_OT_pgBD">
-                   <column>
-                    <property name="text">
-                     <string>Placa</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Fecha</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Kilometraje</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Trabajo</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Repuesto</string>
-                    </property>
-                   </column>
-                  </widget>
-                 </item>
-                 <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <layout class="QHBoxLayout" name="horizontalLayout_9">
                    <item>
-                    <widget class="QLabel" name="label_18">
+                    <widget class="QLabel" name="label_15">
                      <property name="text">
-                      <string>Actualizar</string>
+                      <string>Trabajo</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <spacer name="horizontalSpacer_2">
+                    <widget class="QLineEdit" name="txb_pgAct_NOrd"/>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="bt_pgAct_consul">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>CONSULTAR</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Minimum</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>46</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_7">
+                   <property name="spacing">
+                    <number>30</number>
+                   </property>
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_9">
+                     <item>
+                      <widget class="QLabel" name="label_3">
+                       <property name="text">
+                        <string>Acción</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_9">
+                       <property name="text">
+                        <string>Nombre Trabajo</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_10">
+                       <property name="text">
+                        <string>Tipo de mantenimiento</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <layout class="QVBoxLayout" name="verticalLayout_10">
+                     <property name="spacing">
+                      <number>8</number>
+                     </property>
+                     <item>
+                      <widget class="QLineEdit" name="txb_pgReg_cod_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>40</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="txb_pgReg_fech_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>40</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="txb_pgReg_trab_2">
+                       <property name="minimumSize">
+                        <size>
+                         <width>40</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_6">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <spacer name="verticalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeType">
+                    <enum>QSizePolicy::Minimum</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>47</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_8">
+                   <item>
+                    <widget class="QLabel" name="label_14">
+                     <property name="text">
+                      <string>Guardar Cambios</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_5">
                      <property name="orientation">
                       <enum>Qt::Horizontal</enum>
                      </property>
@@ -945,7 +896,7 @@ QTableWidgetQTableCornerButton::section{
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_pgBD_refrescar">
+                    <widget class="QPushButton" name="bt_pgAct_save">
                      <property name="minimumSize">
                       <size>
                        <width>120</width>
@@ -953,7 +904,7 @@ QTableWidgetQTableCornerButton::section{
                       </size>
                      </property>
                      <property name="text">
-                      <string>REFRESCAR</string>
+                      <string>Actualizar</string>
                      </property>
                     </widget>
                    </item>
@@ -961,6 +912,88 @@ QTableWidgetQTableCornerButton::section{
                  </item>
                 </layout>
                </widget>
+               <widget class="QWidget" name="page_eliminar">
+                <layout class="QVBoxLayout" name="verticalLayout">
+                 <item>
+                  <widget class="QLabel" name="label_4">
+                   <property name="text">
+                    <string>Eliminar Trabajo</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_10">
+                   <item>
+                    <widget class="QLabel" name="label_17">
+                     <property name="text">
+                      <string>Nombre Trabajo</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="lineEdit_12"/>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="bt_pgElim_consul">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Consultar</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <widget class="QTableWidget" name="tabla_OT_pgElim"/>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_6">
+                   <item>
+                    <widget class="QLabel" name="label_23">
+                     <property name="text">
+                      <string>Eliminar Registro</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_7">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="bt_pgElim_save">
+                     <property name="minimumSize">
+                      <size>
+                       <width>120</width>
+                       <height>30</height>
+                      </size>
+                     </property>
+                     <property name="text">
+                      <string>Guardar</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="page_program"/>
               </widget>
              </item>
             </layout>

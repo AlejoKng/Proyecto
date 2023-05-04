@@ -1,8 +1,15 @@
-import sqlite3
+# Conexión con la base de datos
+import sys
+import mysql
+import mysql.connector as db
+
 
 class Comunicacion():
     def __init__(self):
-        self.conexion = sqlite3.connect( 'base_datos.db')
+        self.conexion = mysql.connector.connect(host='localhost',
+                                                database='educationservices1',
+                                                user='root',
+                                                password='WestWind1003')
     
     def registrar_mantenimiento(self,Consecutivo_orden, Fecha, Kilometraje, Trabajo, Repuesto):
         cursor = self.conexion.cursor()
@@ -70,3 +77,4 @@ class Comunicacion():
         cursor.close()
     def buscar_ot(self):
         print("crear buscador")
+
