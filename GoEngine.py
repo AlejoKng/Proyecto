@@ -185,6 +185,7 @@ class Ventanadevehiculo(QMainWindow):
     def __init__(self):
         super(Ventanadevehiculo, self).__init__()
         loadUi("C:\Escritorio\DAVID\VS_Code\Proyecto\Proyecto\d_vh.ui",self)
+        
 
 
 
