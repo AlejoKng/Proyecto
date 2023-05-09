@@ -7,24 +7,49 @@ import mysql.connector as db
 class Comunicacion():
     def __init__(self):
         self.conexion = mysql.connector.connect(host='localhost',
-                                                database='educationservices1',
+                                                database='myenginebase',
                                                 user='root',
                                                 password='WestWind1003')
     
-    def registrar_mantenimiento(self,Consecutivo_orden, Fecha, Kilometraje, Trabajo, Repuesto):
+    def registrar_mantenimiento(self, Fecha, Kilometraje, Trabajo, Repuesto,Placa):
         cursor = self.conexion.cursor()
-        bd='''INSERT INTO ot (Consecutivo_orden, Fecha, Kilometraje, Trabajo, Repuesto)
-        VALUES('{}', '{}','{}', '{}','{}')'''.format(Consecutivo_orden, Fecha, Kilometraje, Trabajo, Repuesto)
+        bd='''INSERT INTO registro_mantenimiento (Fecha, Kilometraje, Trabajo, Repuesto, Placa)
+        VALUES('{}', '{}','{}', '{}','{}')'''.format(Fecha, Kilometraje, Trabajo, Repuesto, Placa)
         cursor.execute(bd)
         self.conexion.commit()    
         cursor.close()
 
     def mostrar_base(self):
         cursor = self.conexion.cursor()
-        bd = "SELECT * FROM ot " 
+        bd = "SELECT * FROM registro_mantenimiento " 
         cursor.execute(bd)
         registro = cursor.fetchall()
         return registro
+
+    def buscar_orden(self, consecutivo):
+        cursor = self.conexion.cursor()
+        bd = '''SELECT * FROM registro_mantenimiento WHERE Consecutivo_orden = {}'''.format(int(consecutivo))
+        cursor.execute(bd)
+        nombrex = cursor.fetchall()
+        cursor.close()     
+        return nombrex
+    
+    def modificar_mante(self, Placa, Fecha, Kilometraje, Trabajo, Repuesto,Consecutivo_orden):
+        cursor = self.conexion.cursor()
+        bd ='''UPDATE registro_mantenimiento SET  Placa=' {}' , Fecha = '{}', Kilometraje = '{}', Trabajo = '{}', Repuesto = '{}'
+        WHERE Consecutivo_orden = '{}' '''.format(Placa, Fecha, Kilometraje, Trabajo, Repuesto,Consecutivo_orden)
+        cursor.execute(bd)
+        self.conexion.commit()    
+        cursor.close()
+
+    def verif_user(self, user):
+        cursor = self.conexion.cursor()
+        bd = '''SELECT password FROM usuarios WHERE user_name = '{}' '''.format(user)
+        cursor.execute(bd)
+        nombrex = cursor.fetchall()
+        cursor.close()     
+        return nombrex[0][0]
+
 
     def programacion_mantenimiento(self, repuesto):
         cursor = self.conexion.cursor()
@@ -36,21 +61,13 @@ class Comunicacion():
 
     def eliminar_mantenimiento(self,trabajo):
         cursor = self.conexion.cursor()
-        bd='''DELETE FROM tabla_datos WHERE NOMBRE = {}'''.format(trabajo)
+        bd='''DELETE FROM registro_mantenimiento WHERE NOMBRE = {}'''.format(trabajo)
         cursor.execute(bd)
         self.conexion.commit()    
         cursor.close()
 
 
-    def modificar_mantenimiento(self, Consecutivo_orden, Fecha, Kilometraje, Trabajo, Repuesto):
-        cursor = self.conexion.cursor()
-        bd ='''UPDATE tabla_datos SET  Consecutivo_orden =' {}' , Fecha = '{}', Kilometraje = '{}', Trabajo = '{}', Repuesto = '{}'
-        WHERE NOMBRE = '{}' '''.format(Consecutivo_orden, Fecha, Kilometraje, Trabajo, Repuesto)
-        cursor.execute(bd)
-        a = cursor.rowcount
-        self.conexion.commit()    
-        cursor.close()
-        return a
+    
     
     def registrar_vehiculo(self, Placa, Conductor, Marca, Kilometraje):
         cursor = self.conexion.cursor()
@@ -63,7 +80,7 @@ class Comunicacion():
     def registrar_usuario(self, user_name, password):
         cursor = self.conexion.cursor()
         bd='''INSERT INTO usuarios (user_name, password)
-        VALUES('{}', '{}','{}', '{}','{}')'''.format(user_name, password)
+        VALUES('{}', '{})'''.format(user_name, password)
         cursor.execute(bd)
         self.conexion.commit()    
         cursor.close()
@@ -75,6 +92,6 @@ class Comunicacion():
         cursor.execute(bd)
         self.conexion.commit()    
         cursor.close()
-    def buscar_ot(self):
-        print("crear buscador")
+
+    
 

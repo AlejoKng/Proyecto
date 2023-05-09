@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1518</width>
-    <height>847</height>
+    <width>1516</width>
+    <height>848</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -240,7 +240,7 @@ QPushButton:hover{
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>55</height>
+           <height>0</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -539,7 +539,7 @@ QPushButton:hover{
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../../../Users/carde/.designer/backup/base de datos.png</normaloff>../../../../../Users/carde/.designer/backup/base de datos.png</iconset>
+                 <normaloff>base de datos.png</normaloff>base de datos.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -578,7 +578,7 @@ QPushButton:hover{
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../../../Users/carde/.designer/backup/filtro.png</normaloff>../../../../../Users/carde/.designer/backup/filtro.png</iconset>
+                 <normaloff>filtro.png</normaloff>filtro.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -614,7 +614,7 @@ QPushButton:hover{
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../../../Users/carde/.designer/backup/lapiz.png</normaloff>../../../../../Users/carde/.designer/backup/lapiz.png</iconset>
+                 <normaloff>lapiz.png</normaloff>lapiz.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -650,7 +650,7 @@ QPushButton:hover{
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../../../Users/carde/.designer/backup/settings.png</normaloff>../../../../../Users/carde/.designer/backup/settings.png</iconset>
+                 <normaloff>settings.png</normaloff>settings.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -805,15 +805,12 @@ QTableWidgetQTableCornerButton::section{
              </property>
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
-               <property name="currentIndex">
-                <number>0</number>
-               </property>
                <widget class="QWidget" name="page_base_datos">
                 <layout class="QVBoxLayout" name="verticalLayout_5">
                  <item>
                   <widget class="QLabel" name="label">
                    <property name="text">
-                    <string>LISTA DE VEHICULOS</string>
+                    <string>REPUESTOS</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -824,12 +821,7 @@ QTableWidgetQTableCornerButton::section{
                   <widget class="QTableWidget" name="tabla_pgBD_OT">
                    <column>
                     <property name="text">
-                     <string>Placa</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Conductor</string>
+                     <string>Repuesto</string>
                     </property>
                    </column>
                    <column>
@@ -839,7 +831,7 @@ QTableWidgetQTableCornerButton::section{
                    </column>
                    <column>
                     <property name="text">
-                     <string>Kilometraje</string>
+                     <string>Proveedor</string>
                     </property>
                    </column>
                   </widget>
@@ -867,7 +859,7 @@ QTableWidgetQTableCornerButton::section{
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_pgBD_Ref">
+                    <widget class="QPushButton" name="bt_pgBD_Act">
                      <property name="minimumSize">
                       <size>
                        <width>140</width>
@@ -906,7 +898,7 @@ QTableWidgetQTableCornerButton::section{
                     <string notr="true">font: 87 16pt &quot;Arial Black&quot;;</string>
                    </property>
                    <property name="text">
-                    <string>Registro de Vehículos</string>
+                    <string>CREAR REPUESTO</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -939,28 +931,21 @@ QTableWidgetQTableCornerButton::section{
                      <item>
                       <widget class="QLabel" name="label_2">
                        <property name="text">
-                        <string>Placa</string>
+                        <string>Nombre Repuesto</string>
                        </property>
                       </widget>
                      </item>
                      <item>
                       <widget class="QLabel" name="label_6">
                        <property name="text">
-                        <string>Conductor</string>
+                        <string>Marca</string>
                        </property>
                       </widget>
                      </item>
                      <item>
                       <widget class="QLabel" name="label_5">
                        <property name="text">
-                        <string>Marca</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_11">
-                       <property name="text">
-                        <string>Kilometraje</string>
+                        <string>Proveedor</string>
                        </property>
                       </widget>
                      </item>
@@ -972,17 +957,7 @@ QTableWidgetQTableCornerButton::section{
                       <number>8</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="tBox_pgReg_Pla">
-                       <property name="minimumSize">
-                        <size>
-                         <width>40</width>
-                         <height>30</height>
-                        </size>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="tBox_pgReg_Cond">
+                      <widget class="QLineEdit" name="tBox_pgReg_Rep">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
@@ -1002,7 +977,14 @@ QTableWidgetQTableCornerButton::section{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="tBox_pgReg_Km"/>
+                      <widget class="QLineEdit" name="tBox_pgReg_Pro">
+                       <property name="minimumSize">
+                        <size>
+                         <width>40</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </item>
@@ -1064,6 +1046,16 @@ QTableWidgetQTableCornerButton::section{
                        <height>40</height>
                       </size>
                      </property>
+                     <property name="font">
+                      <font>
+                       <family>Arial Black</family>
+                       <pointsize>10</pointsize>
+                       <weight>9</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                       <stylestrategy>PreferAntialias</stylestrategy>
+                      </font>
+                     </property>
                      <property name="text">
                       <string>GUARDAR</string>
                      </property>
@@ -1077,8 +1069,11 @@ QTableWidgetQTableCornerButton::section{
                 <layout class="QVBoxLayout" name="verticalLayout_11">
                  <item>
                   <widget class="QLabel" name="label_16">
+                   <property name="lineWidth">
+                    <number>1</number>
+                   </property>
                    <property name="text">
-                    <string>MODIFICAR</string>
+                    <string>MODIFICAR REPUESTO</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -1090,15 +1085,21 @@ QTableWidgetQTableCornerButton::section{
                    <item>
                     <widget class="QLabel" name="label_15">
                      <property name="text">
-                      <string>Placa</string>
+                      <string>Repuesto</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="tBox_pgMod_Plac"/>
+                    <widget class="QLineEdit" name="tBox_pgMod_Con"/>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_pgMod_Pla">
+                    <widget class="QPushButton" name="bt_pgMod_Con">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
                      <property name="minimumSize">
                       <size>
                        <width>140</width>
@@ -1118,27 +1119,24 @@ QTableWidgetQTableCornerButton::section{
                     <enum>Qt::Vertical</enum>
                    </property>
                    <property name="sizeType">
-                    <enum>QSizePolicy::Minimum</enum>
+                    <enum>QSizePolicy::Fixed</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
                      <width>20</width>
-                     <height>46</height>
+                     <height>40</height>
                     </size>
                    </property>
                   </spacer>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_7">
-                   <property name="spacing">
-                    <number>30</number>
-                   </property>
                    <item>
                     <layout class="QVBoxLayout" name="verticalLayout_9">
                      <item>
                       <widget class="QLabel" name="label_3">
                        <property name="text">
-                        <string>Placa</string>
+                        <string>Nombre Repuesto</string>
                        </property>
                       </widget>
                      </item>
@@ -1152,14 +1150,7 @@ QTableWidgetQTableCornerButton::section{
                      <item>
                       <widget class="QLabel" name="label_10">
                        <property name="text">
-                        <string>Kilometraje</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_12">
-                       <property name="text">
-                        <string>Conductor</string>
+                        <string>Proveedor</string>
                        </property>
                       </widget>
                      </item>
@@ -1171,7 +1162,7 @@ QTableWidgetQTableCornerButton::section{
                       <number>8</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="tBox_pgMod_Pla">
+                      <widget class="QLineEdit" name="tBox_pgAct_Rep">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
@@ -1181,7 +1172,7 @@ QTableWidgetQTableCornerButton::section{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="tBox_pgMod_Mar">
+                      <widget class="QLineEdit" name="tBox_pgAct_Mar">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
@@ -1191,7 +1182,7 @@ QTableWidgetQTableCornerButton::section{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="tBox_pgMod_Km">
+                      <widget class="QLineEdit" name="tBox_pgAct_Pro">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
@@ -1199,9 +1190,6 @@ QTableWidgetQTableCornerButton::section{
                         </size>
                        </property>
                       </widget>
-                     </item>
-                     <item>
-                      <widget class="QLineEdit" name="tBox_pgMod_Con"/>
                      </item>
                     </layout>
                    </item>
@@ -1239,7 +1227,7 @@ QTableWidgetQTableCornerButton::section{
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_8">
                    <item>
-                    <widget class="QLabel" name="label_14">
+                    <widget class="QLabel" name="lb_pgMod_Signal">
                      <property name="text">
                       <string>Guardar Cambios</string>
                      </property>
@@ -1267,7 +1255,7 @@ QTableWidgetQTableCornerButton::section{
                       </size>
                      </property>
                      <property name="text">
-                      <string>GUARDAR</string>
+                      <string>ACTUALIZAR</string>
                      </property>
                     </widget>
                    </item>
@@ -1280,7 +1268,7 @@ QTableWidgetQTableCornerButton::section{
                  <item>
                   <widget class="QLabel" name="label_4">
                    <property name="text">
-                    <string>ELIMINAR VEHICULO</string>
+                    <string>ELIMINAR REPUESTO</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -1292,7 +1280,7 @@ QTableWidgetQTableCornerButton::section{
                    <item>
                     <widget class="QLabel" name="label_17">
                      <property name="text">
-                      <string>Placa</string>
+                      <string>Nombre Repuesto</string>
                      </property>
                     </widget>
                    </item>
@@ -1315,7 +1303,23 @@ QTableWidgetQTableCornerButton::section{
                   </layout>
                  </item>
                  <item>
-                  <widget class="QTableWidget" name="tabla_pgElim_OT"/>
+                  <widget class="QTableWidget" name="tabla_pgElim_OT">
+                   <column>
+                    <property name="text">
+                     <string>Repuesto</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Marca</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Proveedor</string>
+                    </property>
+                   </column>
+                  </widget>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_6">

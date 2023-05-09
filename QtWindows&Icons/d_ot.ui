@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1019</width>
-    <height>656</height>
+    <width>1517</width>
+    <height>848</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,7 +38,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,8">
+      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0">
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -87,7 +87,22 @@ QPushButton:hover{
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
+          <property name="leftMargin">
+           <number>9</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>9</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
           <item>
            <widget class="QPushButton" name="bt_menu">
             <property name="text">
@@ -109,6 +124,56 @@ QPushButton:hover{
            <widget class="QLabel" name="lb_GoEngine">
             <property name="text">
              <string>GoEngine</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignTop">
+           <widget class="QPushButton" name="bt_naveg">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="contextMenuPolicy">
+             <enum>Qt::DefaultContextMenu</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color: #000000ff;
+	border-radius:0px;
+
+}
+QPushButton:hover{
+	background-color: ;
+	color: rgb(245, 245, 245);
+	border-right: 2px solid rgb(223, 223, 223);
+	border-left: 2px solid rgb(223, 223, 223);
+	border-radius:0px;
+}
+</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>display.png</normaloff>display.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -175,6 +240,230 @@ QPushButton:hover{
              </size>
             </property>
            </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame_navegar">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame{
+	background-color: rgb(255, 255, 255);
+}
+QPushButton{
+	background-color: rgb(0, 206, 151);
+	border-radius:10px;
+	color: rgb(255, 255, 255);
+	font: 77 10pt &quot;Arial Black&quot;;
+}
+QPushButton:hover{
+	background-color:rgb(229, 229, 229);
+	border-radius:10px;
+
+	color: rgb(0,0,0);
+	font: 77 10pt &quot;Arial Black&quot;;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_13">
+          <item>
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bt_nav_prin">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>140</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Principal</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_10">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>30</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bt_nav_man">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Mantenimiento</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_11">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>30</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bt_nav_tra">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>140</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Trabajos</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_12">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>30</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bt_nav_rep">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>140</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Repuestos</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_14">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>30</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="bt_nav_veh">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>140</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Vehiculos</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_13">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>
@@ -330,7 +619,7 @@ QPushButton:hover{
                 </size>
                </property>
                <property name="text">
-                <string>ACTUALIZAR</string>
+                <string>MODIFICAR</string>
                </property>
                <property name="icon">
                 <iconset>
@@ -554,14 +843,37 @@ QComboBox{
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
                <property name="currentIndex">
-                <number>1</number>
+                <number>2</number>
                </property>
                <widget class="QWidget" name="page_base_datos">
                 <layout class="QVBoxLayout" name="verticalLayout_5">
                  <item>
                   <widget class="QLabel" name="label">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Arial Black</family>
+                     <pointsize>14</pointsize>
+                     <weight>10</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QLabel{
+rgb(255, 0, 0)
+}</string>
+                   </property>
                    <property name="text">
                     <string>Trabajos de Mantenimiento</string>
+                   </property>
+                   <property name="textFormat">
+                    <enum>Qt::PlainText</enum>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -569,7 +881,12 @@ QComboBox{
                   </widget>
                  </item>
                  <item>
-                  <widget class="QTableWidget" name="tabla_OT_pgBD">
+                  <widget class="QTableWidget" name="tabla_pgBD_OT">
+                   <column>
+                    <property name="text">
+                     <string>Orden</string>
+                    </property>
+                   </column>
                    <column>
                     <property name="text">
                      <string>Placa</string>
@@ -577,17 +894,22 @@ QComboBox{
                    </column>
                    <column>
                     <property name="text">
-                     <string>Conductor</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Marca</string>
+                     <string>Fecha</string>
                     </property>
                    </column>
                    <column>
                     <property name="text">
                      <string>Kilometraje</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Trabajo</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Repuesto</string>
                     </property>
                    </column>
                   </widget>
@@ -597,7 +919,7 @@ QComboBox{
                    <item>
                     <widget class="QLabel" name="label_18">
                      <property name="text">
-                      <string>Actualizar</string>
+                      <string>Actualizar informacion en la tabla</string>
                      </property>
                     </widget>
                    </item>
@@ -662,7 +984,7 @@ QComboBox{
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="label_20">
+                  <widget class="QLabel" name="lb_pgReg_Nord">
                    <property name="layoutDirection">
                     <enum>Qt::LeftToRight</enum>
                    </property>
@@ -740,7 +1062,7 @@ QComboBox{
                       <number>8</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="txb_pgReg_cod">
+                      <widget class="QLineEdit" name="tBox_pgReg_Con">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
@@ -750,7 +1072,7 @@ QComboBox{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="txb_pgReg_fech">
+                      <widget class="QLineEdit" name="tBox_pgReg_Fec">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
@@ -760,7 +1082,7 @@ QComboBox{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="txb_pgReg_trab">
+                      <widget class="QLineEdit" name="tBox_pgReg_Km">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
@@ -770,31 +1092,22 @@ QComboBox{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QComboBox" name="comboBox">
+                      <widget class="QLineEdit" name="cBox_pgReg_Tra">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
                          <height>30</height>
                         </size>
-                       </property>
-                       <property name="acceptDrops">
-                        <bool>false</bool>
-                       </property>
-                       <property name="editable">
-                        <bool>true</bool>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QComboBox" name="comboBox_2">
+                      <widget class="QLineEdit" name="cBox_pgReg_Rep">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
                          <height>30</height>
                         </size>
-                       </property>
-                       <property name="editable">
-                        <bool>true</bool>
                        </property>
                       </widget>
                      </item>
@@ -838,7 +1151,7 @@ QComboBox{
                     </widget>
                    </item>
                    <item>
-                    <widget class="QCheckBox" name="checkBox">
+                    <widget class="QCheckBox" name="checkBox_cons_info">
                      <property name="text">
                       <string/>
                      </property>
@@ -862,7 +1175,7 @@ QComboBox{
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_5">
                    <item>
-                    <widget class="QLabel" name="label_8">
+                    <widget class="QLabel" name="lb_pgReg_signal">
                      <property name="text">
                       <string>-----------------</string>
                      </property>
@@ -898,12 +1211,12 @@ QComboBox{
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="page_actualizar">
+               <widget class="QWidget" name="page_modificar">
                 <layout class="QVBoxLayout" name="verticalLayout_11">
                  <item>
                   <widget class="QLabel" name="label_16">
                    <property name="text">
-                    <string>Modificar</string>
+                    <string>MODIFICAR REGISTRO</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -920,10 +1233,10 @@ QComboBox{
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="txb_pgAct_NOrd"/>
+                    <widget class="QLineEdit" name="tBox_pgMod_Nord"/>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_pgAct_consul">
+                    <widget class="QPushButton" name="bt_pgMod_Con">
                      <property name="minimumSize">
                       <size>
                        <width>140</width>
@@ -962,6 +1275,15 @@ QComboBox{
                     <layout class="QVBoxLayout" name="verticalLayout_9">
                      <item>
                       <widget class="QLabel" name="label_3">
+                       <property name="font">
+                        <font>
+                         <family>Arial Black</family>
+                         <pointsize>14</pointsize>
+                         <weight>10</weight>
+                         <italic>false</italic>
+                         <bold>false</bold>
+                        </font>
+                       </property>
                        <property name="text">
                         <string>Placa</string>
                        </property>
@@ -1003,7 +1325,7 @@ QComboBox{
                       <number>8</number>
                      </property>
                      <item>
-                      <widget class="QLineEdit" name="txb_pgMod_cons">
+                      <widget class="QLineEdit" name="tBox_pgMod_Pla">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
@@ -1013,7 +1335,7 @@ QComboBox{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="txb_pgMod_fech">
+                      <widget class="QLineEdit" name="tBox_pgMod_Fec">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
@@ -1023,7 +1345,7 @@ QComboBox{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="txb_pgMod_km">
+                      <widget class="QLineEdit" name="txb_pgMod_Km">
                        <property name="minimumSize">
                         <size>
                          <width>40</width>
@@ -1033,10 +1355,24 @@ QComboBox{
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="txb_pgMod_trab"/>
+                      <widget class="QLineEdit" name="cBox_pgMod_Tra">
+                       <property name="minimumSize">
+                        <size>
+                         <width>40</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                      <item>
-                      <widget class="QLineEdit" name="txb_pgMod_rep"/>
+                      <widget class="QLineEdit" name="cBox_pgMod_Rep">
+                       <property name="minimumSize">
+                        <size>
+                         <width>40</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </item>
@@ -1074,7 +1410,7 @@ QComboBox{
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_8">
                    <item>
-                    <widget class="QLabel" name="lb_pgMod_actu">
+                    <widget class="QLabel" name="lb_pgMod_Act">
                      <property name="text">
                       <string>Guardar Cambios</string>
                      </property>
@@ -1094,7 +1430,7 @@ QComboBox{
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_pgMod_actu">
+                    <widget class="QPushButton" name="bt_pgMod_Act">
                      <property name="minimumSize">
                       <size>
                        <width>140</width>
@@ -1102,7 +1438,7 @@ QComboBox{
                       </size>
                      </property>
                      <property name="text">
-                      <string>Actualizar</string>
+                      <string>MODIFICAR</string>
                      </property>
                     </widget>
                    </item>
@@ -1115,7 +1451,7 @@ QComboBox{
                  <item>
                   <widget class="QLabel" name="label_4">
                    <property name="text">
-                    <string>Eliminar Trabajo</string>
+                    <string>ELIMINAR REGISTRO</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -1127,15 +1463,15 @@ QComboBox{
                    <item>
                     <widget class="QLabel" name="label_17">
                      <property name="text">
-                      <string>Placa</string>
+                      <string>Consecutivo</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="lineEdit_12"/>
+                    <widget class="QLineEdit" name="tBox_pgElim_Con"/>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_pgElim_consul">
+                    <widget class="QPushButton" name="bt_pgElim_Con">
                      <property name="minimumSize">
                       <size>
                        <width>140</width>
@@ -1143,19 +1479,50 @@ QComboBox{
                       </size>
                      </property>
                      <property name="text">
-                      <string>Consultar</string>
+                      <string>CONSULTAR</string>
                      </property>
                     </widget>
                    </item>
                   </layout>
                  </item>
                  <item>
-                  <widget class="QTableWidget" name="tabla_OT_pgElim"/>
+                  <widget class="QTableWidget" name="tabla_pgElim_OT">
+                   <column>
+                    <property name="text">
+                     <string>Orden</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Placa</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Fecha</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Kilometraje</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Trabajo</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Repuesto</string>
+                    </property>
+                   </column>
+                  </widget>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_6">
                    <item>
-                    <widget class="QLabel" name="label_23">
+                    <widget class="QLabel" name="lb_pgElim_Save">
                      <property name="text">
                       <string>Eliminar Registro</string>
                      </property>
@@ -1175,7 +1542,7 @@ QComboBox{
                     </spacer>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="bt_pgElim_save">
+                    <widget class="QPushButton" name="bt_pgElim_Save">
                      <property name="minimumSize">
                       <size>
                        <width>140</width>
@@ -1183,7 +1550,7 @@ QComboBox{
                       </size>
                      </property>
                      <property name="text">
-                      <string>Guardar</string>
+                      <string>GUARDAR</string>
                      </property>
                     </widget>
                    </item>
@@ -1191,7 +1558,57 @@ QComboBox{
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="page_program"/>
+               <widget class="QWidget" name="page_program">
+                <layout class="QHBoxLayout" name="horizontalLayout_12">
+                 <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_13">
+                   <item>
+                    <widget class="QLabel" name="label_8">
+                     <property name="font">
+                      <font>
+                       <family>Arial Black</family>
+                       <pointsize>14</pointsize>
+                       <weight>10</weight>
+                       <italic>false</italic>
+                       <bold>false</bold>
+                      </font>
+                     </property>
+                     <property name="text">
+                      <string>VEHICULOS PROGRAMADOS</string>
+                     </property>
+                     <property name="alignment">
+                      <set>Qt::AlignCenter</set>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QTableWidget" name="table_pgPro_Vh">
+                     <column>
+                      <property name="text">
+                       <string>Placa</string>
+                      </property>
+                     </column>
+                     <column>
+                      <property name="text">
+                       <string>Trabajo</string>
+                      </property>
+                     </column>
+                     <column>
+                      <property name="text">
+                       <string>Kilometraje trabajo</string>
+                      </property>
+                     </column>
+                     <column>
+                      <property name="text">
+                       <string>kilometraje a realizar</string>
+                      </property>
+                     </column>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
               </widget>
              </item>
             </layout>
