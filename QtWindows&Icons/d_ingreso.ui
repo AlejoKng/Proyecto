@@ -209,7 +209,11 @@ QPushButton:hover{
 	color: rgb(0,0,0);
 	font: 77 12pt &quot;Arial Black&quot;;
 }
-</string>
+QLineEdit{
+	color: rgb(255, 255, 255);
+	font: 75 14pt &quot;Times New Roman&quot;;
+	
+}</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::StyledPanel</enum>
@@ -245,6 +249,12 @@ QPushButton:hover{
                  <height>40</height>
                 </size>
                </property>
+               <property name="styleSheet">
+                <string notr="true">QlineEdit{
+	color: rgb(255, 255, 255);
+
+}</string>
+               </property>
               </widget>
              </item>
              <item>
@@ -273,6 +283,15 @@ QPushButton:hover{
                  <width>40</width>
                  <height>40</height>
                 </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QlineEdit{
+	color: rgb(255, 255, 255);
+
+}</string>
+               </property>
+               <property name="echoMode">
+                <enum>QLineEdit::Password</enum>
                </property>
               </widget>
              </item>

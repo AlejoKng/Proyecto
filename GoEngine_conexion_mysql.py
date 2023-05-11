@@ -13,8 +13,9 @@ class Comunicacion():
     
     def registrar_mantenimiento(self, Fecha, Kilometraje, Trabajo, Repuesto,Placa):
         cursor = self.conexion.cursor()
-        bd='''INSERT INTO registro_mantenimiento (Fecha, Kilometraje, Trabajo, Repuesto, Placa)
-        VALUES('{}', '{}','{}', '{}','{}')'''.format(Fecha, Kilometraje, Trabajo, Repuesto, Placa)
+        bd='''INSERT INTO registro_mantenimiento (registro_mantenimiento.Placa, Fecha, Kilometraje, Trabajo, Repuesto)
+            VALUES ('{}', '{}', '{}', '{}', '{}')
+            ON DUPLICATE KEY UPDATE registro_mantenimiento.Placa = '{}',Fecha='{}', Kilometraje='{}', Trabajo='{}', Repuesto='{}' '''.format(Placa, Fecha, Kilometraje, Trabajo, Repuesto, Placa,Fecha, Kilometraje, Trabajo, Repuesto)
         cursor.execute(bd)
         self.conexion.commit()    
         cursor.close()
@@ -34,10 +35,11 @@ class Comunicacion():
         cursor.close()     
         return nombrex
     
-    def modificar_mante(self, Placa, Fecha, Kilometraje, Trabajo, Repuesto,Consecutivo_orden):
+    def modificar_mante(self, Fecha, Kilometraje, Trabajo, Repuesto,Placa,Consecutivo_orden):
         cursor = self.conexion.cursor()
-        bd ='''UPDATE registro_mantenimiento SET  Placa=' {}' , Fecha = '{}', Kilometraje = '{}', Trabajo = '{}', Repuesto = '{}'
-        WHERE Consecutivo_orden = '{}' '''.format(Placa, Fecha, Kilometraje, Trabajo, Repuesto,Consecutivo_orden)
+        bd ='''INSERT INTO registro_mantenimiento (Consecutivo_orden, registro_mantenimiento.Placa, Fecha, Kilometraje, Trabajo, Repuesto)
+            VALUES ('{}', '{}', '{}', '{}', '{}', '{}')
+            ON DUPLICATE KEY UPDATE registro_mantenimiento.Placa = '{}',Fecha='{}', Kilometraje='{}', Trabajo='{}', Repuesto='{}' '''.format(Consecutivo_orden, Placa, Fecha, Kilometraje, Trabajo, Repuesto, Placa,Fecha, Kilometraje, Trabajo, Repuesto)
         cursor.execute(bd)
         self.conexion.commit()    
         cursor.close()
@@ -49,6 +51,9 @@ class Comunicacion():
         nombrex = cursor.fetchall()
         cursor.close()     
         return nombrex[0][0]
+
+
+
 
 
     def programacion_mantenimiento(self, repuesto):
@@ -71,8 +76,11 @@ class Comunicacion():
     
     def registrar_vehiculo(self, Placa, Conductor, Marca, Kilometraje):
         cursor = self.conexion.cursor()
-        bd='''INSERT INTO vehiculo (Placa, Conductor, Marca, Kilometraje)
-        VALUES('{}', '{}','{}', '{}','{}')'''.format(Placa, Conductor, Marca, Kilometraje)
+        #bd='''INSERT INTO vehiculo (Placa, Conductor, Marca, Kilometraje)
+        #VALUES('{}', '{}','{}', '{}','{}')'''.format(Placa, Conductor, Marca, Kilometraje)
+        bd='''INSERT INTO registro_mantenimiento (registro_mantenimiento.Placa, Fecha, Kilometraje, Trabajo, Repuesto)
+            VALUES ('{}', '{}', '{}', '{}', '{}', '{}') ON DUPLICATE KEY 
+            UPDATE registro_mantenimiento.Placa = '{}',Fecha='{}', Kilometraje='{}', Trabajo='{}', Repuesto='{}' '''.format(Placa, Conductor, Marca, Kilometraje)
         cursor.execute(bd)
         self.conexion.commit()    
         cursor.close()

@@ -381,10 +381,10 @@ class VentanaOrden(QMainWindow):
     ######    PAGINA REGISTRO   ######
     def registrar_mantenimiento(self):
         Placa =self.tBox_pgReg_Con.text().upper()
-        Fecha = self.tBox_pgReg_Fec.text().upper()
+        Fecha = self.tBox_pgReg_Fec.text()
         Kilometraje = int(self.tBox_pgReg_Km.text().upper())
-        Repuesto =self.cBox_pgReg_Rep.text().upper()
-        Trabajo =self.cBox_pgReg_Tra.text().upper()
+        Repuesto =self.cBox_pgReg_Rep.text()
+        Trabajo =self.cBox_pgReg_Tra.text()
         if Placa!='' and Fecha!='' and Kilometraje!='' and Repuesto!='' and Trabajo!='':
             self.base_datos.registrar_mantenimiento( Fecha, Kilometraje, Trabajo, Repuesto,Placa)
             self.lb_pgReg_Nord.setText('Mantenimiento Registrado')
@@ -412,15 +412,15 @@ class VentanaOrden(QMainWindow):
             self.lb_pgMod_Act.setText('Dato no encontrado')
         
     def modificar_mante(self):
-        consulta=self.tBox_pgMod_Nord.text().upper()
+        consulta=self.tBox_pgMod_Nord.text()
         consulta=str(consulta)
         Placa =self.tBox_pgMod_Pla.text().upper()
-        Fecha = self.tBox_pgMod_Fec.text().upper()
+        Fecha = self.tBox_pgMod_Fec.text()
         Kilometraje = int(self.txb_pgMod_Km.text().upper())
-        Repuesto =self.cBox_pgMod_Rep.text().upper()
-        Trabajo =self.cBox_pgMod_Tra.text().upper()
+        Repuesto =self.cBox_pgMod_Rep.text()
+        Trabajo =self.cBox_pgMod_Tra.text()
         if Placa!='' and Fecha!='' and Kilometraje!='' and Repuesto!='' and Trabajo!='':
-            self.base_datos.modificar_mante(Placa, Fecha, Kilometraje, Trabajo, Repuesto,consulta)
+            self.base_datos.modificar_mante(Fecha, Kilometraje, Trabajo, Repuesto, Placa,consulta)
             self.lb_pgMod_Act.setText('Mantenimiento Registrado')
             Placa =self.tBox_pgMod_Pla.clear()
             Fecha =self.tBox_pgMod_Fec.clear()
@@ -431,6 +431,7 @@ class VentanaOrden(QMainWindow):
             self.lb_pgMod_Act.setText('Hay Espacios Vacios')
     
     ######    PAGINA ELIMINAR   ######
+
     ######    PAGINA PROGRAMA   ######
     
         
