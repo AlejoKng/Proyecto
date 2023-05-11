@@ -16,6 +16,7 @@ class VentanadeInicio(QMainWindow):
 
         #Base de datos
         self.base_datos = Comunicacion()
+
         #Botones Superiores
         self.bt_minimizar.clicked.connect(self.control_bt_minimizar)
         self.bt_colapsar.clicked.connect(self.control_bt_normal)
@@ -368,6 +369,7 @@ class VentanaOrden(QMainWindow):
     def mostrar_base(self):
         datos=self.base_datos.mostrar_base()
         i=len(datos)
+        print(datos)
         self.tabla_pgBD_OT.setRowCount(i)
         tablerow=0
         for row in datos:
