@@ -71,12 +71,12 @@ class VentanadeInicio(QMainWindow):
             self.showNormal()
 
     def acceso(self):
-        self.close()
         user =self.txb_usuario.text()
         contra =self.txb_contra.text()
         self.comp=self.base_datos.verif_user(user)
         print(contra,"=",self.comp)
         if(self.comp==contra):
+            self.close()
             self.VentanaOrden=VentanaOrden()
             self.VentanaOrden.show()
 
