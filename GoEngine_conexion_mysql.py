@@ -41,7 +41,7 @@ class Comunicacion():
             VALUES ('{}', '{}', '{}', '{}', '{}', '{}')
             ON DUPLICATE KEY UPDATE registro_mantenimiento.Placa = '{}',Fecha='{}', Kilometraje='{}', Trabajo='{}', Repuesto='{}' '''.format(Consecutivo_orden, Placa, Fecha, Kilometraje, Trabajo, Repuesto, Placa,Fecha, Kilometraje, Trabajo, Repuesto)
         cursor.execute(bd)
-        self.conexion.commit()    
+        self.conexion.commit()
         cursor.close()
 
     def verif_user(self, user):
