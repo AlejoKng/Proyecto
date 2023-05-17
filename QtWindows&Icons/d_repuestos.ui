@@ -821,6 +821,11 @@ QTableWidgetQTableCornerButton::section{
                   <widget class="QTableWidget" name="tabla_pgBD_OT">
                    <column>
                     <property name="text">
+                     <string>Trabajo</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
                      <string>Repuesto</string>
                     </property>
                    </column>
@@ -929,6 +934,29 @@ QTableWidgetQTableCornerButton::section{
                    <item>
                     <layout class="QVBoxLayout" name="verticalLayout_6">
                      <item>
+                      <widget class="QLabel" name="label_8">
+                       <property name="text">
+                        <string>Nombre Trabajo</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_10">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Fixed</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>10</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
                       <widget class="QLabel" name="label_2">
                        <property name="text">
                         <string>Nombre Repuesto</string>
@@ -936,11 +964,43 @@ QTableWidgetQTableCornerButton::section{
                       </widget>
                      </item>
                      <item>
+                      <spacer name="verticalSpacer_11">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Fixed</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>10</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
                       <widget class="QLabel" name="label_6">
                        <property name="text">
                         <string>Marca</string>
                        </property>
                       </widget>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_12">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Fixed</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>10</height>
+                        </size>
+                       </property>
+                      </spacer>
                      </item>
                      <item>
                       <widget class="QLabel" name="label_5">
@@ -957,6 +1017,29 @@ QTableWidgetQTableCornerButton::section{
                       <number>8</number>
                      </property>
                      <item>
+                      <widget class="QLineEdit" name="tBox_pgReg_Tra">
+                       <property name="minimumSize">
+                        <size>
+                         <width>40</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_13">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>5</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
                       <widget class="QLineEdit" name="tBox_pgReg_Rep">
                        <property name="minimumSize">
                         <size>
@@ -967,6 +1050,19 @@ QTableWidgetQTableCornerButton::section{
                       </widget>
                      </item>
                      <item>
+                      <spacer name="verticalSpacer_14">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>5</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
                       <widget class="QLineEdit" name="tBox_pgReg_Mar">
                        <property name="minimumSize">
                         <size>
@@ -975,6 +1071,19 @@ QTableWidgetQTableCornerButton::section{
                         </size>
                        </property>
                       </widget>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_15">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>5</height>
+                        </size>
+                       </property>
+                      </spacer>
                      </item>
                      <item>
                       <widget class="QLineEdit" name="tBox_pgReg_Pro">
@@ -1021,7 +1130,7 @@ QTableWidgetQTableCornerButton::section{
                    <item>
                     <widget class="QLabel" name="lb_pgReg_Save">
                      <property name="text">
-                      <string>TextLabel</string>
+                      <string>Guardar Repuesto</string>
                      </property>
                     </widget>
                    </item>
@@ -1090,7 +1199,39 @@ QTableWidgetQTableCornerButton::section{
                     </widget>
                    </item>
                    <item>
+                    <spacer name="horizontalSpacer_8">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Fixed</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>50</width>
+                       <height>25</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
                     <widget class="QLineEdit" name="tBox_pgMod_Con"/>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_15">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Fixed</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>500</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                    <item>
                     <widget class="QPushButton" name="bt_pgMod_Con">
@@ -1102,7 +1243,7 @@ QTableWidgetQTableCornerButton::section{
                      </property>
                      <property name="minimumSize">
                       <size>
-                       <width>140</width>
+                       <width>150</width>
                        <height>40</height>
                       </size>
                      </property>
@@ -1141,11 +1282,66 @@ QTableWidgetQTableCornerButton::section{
                       </widget>
                      </item>
                      <item>
+                      <spacer name="verticalSpacer_16">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Fixed</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>15</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_11">
+                       <property name="text">
+                        <string>Nombre Trabajo</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_17">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Fixed</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>15</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
                       <widget class="QLabel" name="label_9">
                        <property name="text">
                         <string>Marca</string>
                        </property>
                       </widget>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_18">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Fixed</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>15</height>
+                        </size>
+                       </property>
+                      </spacer>
                      </item>
                      <item>
                       <widget class="QLabel" name="label_10">
@@ -1172,6 +1368,48 @@ QTableWidgetQTableCornerButton::section{
                       </widget>
                      </item>
                      <item>
+                      <spacer name="verticalSpacer_19">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Fixed</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>5</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
+                      <widget class="QLineEdit" name="tBox_pgAct_Tra">
+                       <property name="minimumSize">
+                        <size>
+                         <width>40</width>
+                         <height>30</height>
+                        </size>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_20">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Fixed</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>5</height>
+                        </size>
+                       </property>
+                      </spacer>
+                     </item>
+                     <item>
                       <widget class="QLineEdit" name="tBox_pgAct_Mar">
                        <property name="minimumSize">
                         <size>
@@ -1180,6 +1418,22 @@ QTableWidgetQTableCornerButton::section{
                         </size>
                        </property>
                       </widget>
+                     </item>
+                     <item>
+                      <spacer name="verticalSpacer_21">
+                       <property name="orientation">
+                        <enum>Qt::Vertical</enum>
+                       </property>
+                       <property name="sizeType">
+                        <enum>QSizePolicy::Fixed</enum>
+                       </property>
+                       <property name="sizeHint" stdset="0">
+                        <size>
+                         <width>20</width>
+                         <height>5</height>
+                        </size>
+                       </property>
+                      </spacer>
                      </item>
                      <item>
                       <widget class="QLineEdit" name="tBox_pgAct_Pro">
@@ -1250,7 +1504,7 @@ QTableWidgetQTableCornerButton::section{
                     <widget class="QPushButton" name="bt_pgMod_Save">
                      <property name="minimumSize">
                       <size>
-                       <width>140</width>
+                       <width>150</width>
                        <height>40</height>
                       </size>
                      </property>
@@ -1280,12 +1534,44 @@ QTableWidgetQTableCornerButton::section{
                    <item>
                     <widget class="QLabel" name="label_17">
                      <property name="text">
-                      <string>Nombre Repuesto</string>
+                      <string>Buscar Repuesto</string>
                      </property>
                     </widget>
                    </item>
                    <item>
+                    <spacer name="horizontalSpacer_17">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Fixed</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
                     <widget class="QLineEdit" name="tBox_pgElim_Con"/>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_16">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Fixed</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>300</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                    <item>
                     <widget class="QPushButton" name="bt_pgElim_Con">
@@ -1360,7 +1646,6 @@ QTableWidgetQTableCornerButton::section{
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="page_program"/>
               </widget>
              </item>
             </layout>

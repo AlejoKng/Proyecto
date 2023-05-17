@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1517</width>
+    <width>1495</width>
     <height>848</height>
    </rect>
   </property>
@@ -200,6 +200,8 @@ QPushButton:hover{
              <string notr="true">
 QFrame{
 	background-color: rgb(255, 255, 255);
+background-color: rgb(0, 206, 151);
+	background-color: rgb(0, 160, 145);
 }
 QPushButton{
 	background-color: rgb(0, 206, 151);
@@ -464,14 +466,14 @@ QLineEdit{
 }
 QPushButton{
 	background-color: rgb(61, 61, 61);
-	border-radius:15px;
+	border-radius:20px;
 	color: rgb(255, 255, 255);
 	font: 77 10pt &quot;Arial Black&quot;;
 }
 
 QPushButton:hover{
 	background-color:rgb(0, 206, 151);
-	border-radius:15px;
+	border-radius:20px;
 	color: rgb(0,0,0);
 	font: 77 10pt &quot;Arial Black&quot;;
 }
@@ -542,20 +544,174 @@ QTableWidgetQTableCornerButton::section{
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLineEdit" name="tBox_pgAkm_Pla"/>
+                    <spacer name="horizontalSpacer_5">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Fixed</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>103</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="tBox_pgAkm_Pla">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>300</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_2">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                    <item>
                     <widget class="QPushButton" name="bt_pgAkm_Cons">
                      <property name="minimumSize">
                       <size>
-                       <width>120</width>
-                       <height>30</height>
+                       <width>140</width>
+                       <height>40</height>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Consultar</string>
+                      <string>CONSULTAR</string>
                      </property>
                     </widget>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_11">
+                   <item>
+                    <widget class="QLabel" name="label_18">
+                     <property name="text">
+                      <string>Kilometraje</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_6">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Fixed</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>27</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="tBox_pgAkm_Km">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>300</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_3">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                  </layout>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_12">
+                   <item>
+                    <widget class="QLabel" name="label_19">
+                     <property name="text">
+                      <string>Fecha</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_8">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeType">
+                      <enum>QSizePolicy::Fixed</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>99</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QLineEdit" name="tBox_pgAkm_Fec">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>300</width>
+                       <height>0</height>
+                      </size>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_4">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
                    </item>
                   </layout>
                  </item>
@@ -583,7 +739,7 @@ QTableWidgetQTableCornerButton::section{
                    <item>
                     <widget class="QLabel" name="label_23">
                      <property name="text">
-                      <string>GUARDAR</string>
+                      <string>ACTUALIZAR</string>
                      </property>
                     </widget>
                    </item>
@@ -604,12 +760,12 @@ QTableWidgetQTableCornerButton::section{
                     <widget class="QPushButton" name="bt_pgElim_save">
                      <property name="minimumSize">
                       <size>
-                       <width>120</width>
-                       <height>30</height>
+                       <width>140</width>
+                       <height>40</height>
                       </size>
                      </property>
                      <property name="text">
-                      <string>Guardar</string>
+                      <string>GUARDAR</string>
                      </property>
                     </widget>
                    </item>
