@@ -55,6 +55,7 @@ class Comunicacion():
         cursor.execute(bd)
         registro = cursor.fetchall()
         return registro
+    
     def todo_base_ODO(self):
         cursor = self.conexion.cursor()
         bd = "SELECT * FROM odometro "
@@ -70,6 +71,15 @@ class Comunicacion():
         cursor.execute(bd)
         self.conexion.commit()
         cursor.close()
+
+    def actualizar_trab(self, trabajo, tipo, periodicidad):
+        cursor = self.conexion.cursor()
+        bd ='''INSERT INTO trabajos (Trabajo, Tipo_mantenimiento, Periodicidad)
+            VALUES ('{}', '{}', '{}')
+            ON DUPLICATE KEY UPDATE Fecha='{}', Kilometraje='{}' '''.format(trabajo, tipo, periodicidad,tipo, periodicidad)
+        cursor.execute(bd)
+        self.conexion.commit()
+        cursor.close()
     
     def eliminar_mante(self,consulta):
         cursor = self.conexion.cursor()
@@ -80,11 +90,18 @@ class Comunicacion():
 
     def buscar_orden(self, consecutivo):
         cursor = self.conexion.cursor()
-        bd = '''SELECT * FROM registro_mantenimiento WHERE Consecutivo_orden = {}'''.format(int(consecutivo))
+        bd = '''SELECT * FROM registro_mantenimiento WHERE Consecutivo_orden = {}'''.format(consecutivo)
         cursor.execute(bd)
         nombrex = cursor.fetchall()
         cursor.close()     
         return nombrex
+    
+    def buscar_trab(self, consulta):
+        cursor = self.conexion.cursor()
+        bd = "SELECT * FROM trabajos WHERE Trabajo='{}'".format(consulta) 
+        cursor.execute(bd)
+        registro = cursor.fetchall()
+        return registro
     
     def modificar_mante(self, Fecha, Kilometraje, Trabajo, Repuesto,Placa,Consecutivo_orden):
         cursor = self.conexion.cursor()

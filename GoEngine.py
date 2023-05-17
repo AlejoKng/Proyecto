@@ -595,7 +595,19 @@ class VentanadeTrabajos(QMainWindow):
         self.bt_nav_man.clicked.connect(self.navego_man)
         self.bt_ingreso.clicked.connect(self.navego_ing)
         
-        # Conexiones por pagina
+        # Configurar el completer
+        self.completertrab = QCompleter()
+        self.completertrab.setCaseSensitivity(False)  # No distinguir mayúsculas de minúsculas
+        self.completertrab.setModelSorting(QCompleter.CaseInsensitivelySortedModel)  # Ordenar insensible a mayúsculas/minúsculas
+        self.completertrab.setFilterMode(Qt.MatchContains)
+        # 1. Obtener la lista de opciones para el completer
+        # 2. Establecer la lista de opciones en el completer
+        # 3. Asignar el completer al QLineEdit
+        opciones = self.base_datos.trae_trab()
+        self.completertrab.setModel(QtCore.QStringListModel(opciones))
+        self.tBox_pgMod_Con.setCompleter(self.completertrab)
+
+        # Conexiones por pagina tBox_pgMod_Con
         # Pagina Base de Datos (page_base_datos)
         self.bt_database.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_base_datos))
         # Botones en la Pagina
@@ -605,13 +617,14 @@ class VentanadeTrabajos(QMainWindow):
         self.bt_registrar.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_registrar))
         # Botones en la Pagina
         self.bt_pgReg_Save.clicked.connect(self.registrar_trabajo)
-        """
+        
         # Pagina Modificar Trabajo (page_actualizar)
         self.bt_actualizar.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_actualizar))
         # Botones en la Pagina
-        self.bt_pgMod_Act.clicked.connect(self.modificar_mante)
-        self.bt_pgMod_Con.clicked.connect(self.actualizar_mante)
+        self.bt_pgMod_Con.clicked.connect(self.modificar_trab)
+        self.bt_pgMod_Save.clicked.connect(self.actualizar_trab)
 
+        """
         # Pagina Eliminar de Trabajo (page_eliminar)
         self.bt_eliminar.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_eliminar))
         # Botones en la Pagina
@@ -723,7 +736,7 @@ class VentanadeTrabajos(QMainWindow):
             tablerow+=1
     ######    PAGINA REGISTRO   ######
     def registrar_trabajo(self):
-        trabajo =self.tBox_pgReg_Tra.text().upper()
+        trabajo =self.tBox_pgReg_Tra.text()
         tipo = self.tBox_pgReg_Tip.text()
         periodicidad = int(self.tBox_pgReg_Per.text().upper())
         if trabajo!='' and tipo!='' and periodicidad!='':
@@ -737,38 +750,31 @@ class VentanadeTrabajos(QMainWindow):
 
     ######      PAGINA MODIFICAR        ######
 
-    def actualizar_mante(self):
-        consulta=self.tBox_pgMod_Nord.text().upper()
+    def modificar_trab(self):
+        consulta=self.tBox_pgMod_Con.text()
         consulta=str(consulta)
-        self.orden=self.base_datos.buscar_orden(consulta)
+        self.orden=self.base_datos.buscar_trab(consulta)
         if (len(self.orden)!=0):
             #print(self.orden[0][1])
-            self.tBox_pgMod_Pla.setText(str(self.orden[0][5]))
-            self.tBox_pgMod_Fec.setText(self.orden[0][1].strftime("%Y-%m-%d"))
-            self.txb_pgMod_Km.setText(str(self.orden[0][2]))
-            self.cBox_pgMod_Tra.setText(self.orden[0][3])
-            self.cBox_pgMod_Rep.setText(self.orden[0][4])
+            self.tBox_pgAct_Nom.setText(str(self.orden[0][0]))
+            self.tBox_pgAct_Tip.setText(str(self.orden[0][1]))
+            self.tBox_pgAct_Per.setText(str(self.orden[0][2]))
+
         else:
-            self.lb_pgMod_Act.setText('Dato no encontrado')
+            self.lb_pgMod_Signal.setText('Dato no encontrado')
         
-    def modificar_mante(self):
-        consulta=self.tBox_pgMod_Nord.text()
-        consulta=str(consulta)
-        Placa =self.tBox_pgMod_Pla.text().upper()
-        Fecha = self.tBox_pgMod_Fec.text()
-        Kilometraje = int(self.txb_pgMod_Km.text().upper())
-        Repuesto =self.cBox_pgMod_Rep.text()
-        Trabajo =self.cBox_pgMod_Tra.text()
-        if Placa!='' and Fecha!='' and Kilometraje!='' and Repuesto!='' and Trabajo!='':
-            self.base_datos.modificar_mante(Fecha, Kilometraje, Trabajo, Repuesto, Placa,consulta)
-            self.lb_pgMod_Act.setText('Mantenimiento Registrado')
-            Placa =self.tBox_pgMod_Pla.clear()
-            Fecha =self.tBox_pgMod_Fec.clear()
-            Kilometraje =self.txb_pgMod_Km.clear()
-            Repuesto =self.cBox_pgMod_Rep.clear()
-            Trabajo =self.cBox_pgMod_Tra.clear()
+    def actualizar_trab(self):################################################################
+        trabajo =self.tBox_pgMod_Con.text()
+        tipo = self.tBox_pgAct_Tip.text()
+        periodicidad = int(self.tBox_pgAct_Per.text().upper())
+        if trabajo!='' and tipo!='' and periodicidad!='':
+            self.base_datos.actualizar_trab( trabajo, tipo, periodicidad)
+            self.lb_pgMod_Signal.setText('Trabajo Registrado')
+            trabajo =self.tBox_pgAct_Nom.clear()
+            tipo =self.tBox_pgAct_Tip.clear()
+            periodicidad =self.tBox_pgAct_Per.clear()
         else:
-            self.lb_pgMod_Act.setText('Hay Espacios Vacios')
+            self.lb_pgMod_Signal.setText('Hay Espacios Vacios')
     
     ######    PAGINA ELIMINAR   ######
     def consulElim_mante(self):
