@@ -806,7 +806,7 @@ QTableWidgetQTableCornerButton::section{
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
                <property name="currentIndex">
-                <number>3</number>
+                <number>2</number>
                </property>
                <widget class="QWidget" name="page_base_datos">
                 <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -1135,7 +1135,7 @@ QTableWidgetQTableCornerButton::section{
                    <item>
                     <widget class="QLabel" name="lb_pgReg_Save">
                      <property name="text">
-                      <string>TextLabel</string>
+                      <string>AGREGAR</string>
                      </property>
                     </widget>
                    </item>
@@ -1571,7 +1571,28 @@ QTableWidgetQTableCornerButton::section{
                   </layout>
                  </item>
                  <item>
-                  <widget class="QTableWidget" name="tabla_pgElim_OT"/>
+                  <widget class="QTableWidget" name="tabla_pgElim_OT">
+                   <column>
+                    <property name="text">
+                     <string>Placa</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Conductor</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Marca</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Kilometraje</string>
+                    </property>
+                   </column>
+                  </widget>
                  </item>
                  <item>
                   <layout class="QHBoxLayout" name="horizontalLayout_6">

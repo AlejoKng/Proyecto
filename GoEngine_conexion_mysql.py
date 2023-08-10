@@ -28,6 +28,14 @@ class Comunicacion():
         self.conexion.commit()    
         cursor.close()
 
+    def registrar_vehiculo(self, placa, marca, conductor, kilometraje):
+        cursor = self.conexion.cursor()
+        bd='''INSERT INTO vehiculos (Placa, Conductor, Marca, Kilometraje) VALUES ('{}', '{}', '{}', '{}')
+            ON DUPLICATE KEY UPDATE Placa = '{}',Conductor='{}', Marca='{}', Kilometraje='{}' '''.format(placa, marca, conductor, kilometraje,placa, marca, conductor, kilometraje)
+        cursor.execute(bd)
+        self.conexion.commit()    
+        cursor.close()
+
     def mostrar_base(self):
         cursor = self.conexion.cursor()
         bd = "SELECT * FROM registro_mantenimiento " 
@@ -35,9 +43,23 @@ class Comunicacion():
         registro = cursor.fetchall()
         return registro
     
+    def mostrar_base_vehiculos(self):
+        cursor = self.conexion.cursor()
+        bd = "SELECT * FROM vehiculos " 
+        cursor.execute(bd)
+        registro = cursor.fetchall()
+        return registro
+    
     def mostrar_base_trabajos(self):
         cursor = self.conexion.cursor()
         bd = "SELECT * FROM trabajos " 
+        cursor.execute(bd)
+        registro = cursor.fetchall()
+        return registro
+    
+    def mostrar_base_repuestos(self):
+        cursor = self.conexion.cursor()
+        bd = "SELECT * FROM repuestos " 
         cursor.execute(bd)
         registro = cursor.fetchall()
         return registro
@@ -63,6 +85,21 @@ class Comunicacion():
         registro = cursor.fetchall()
         return registro
     
+    def todo_base_PRO(self):
+        cursor = self.conexion.cursor()
+        bd = '''INSERT INTO programacion_mantenimiento (Consecutivo_orden, Placa, Trabajo, Proximo_mantenimiento_km)
+                SELECT r.Consecutivo_orden, v.Placa, t.Trabajo, r.Kilometraje + t.Periodicidad
+                FROM vehiculos v
+                JOIN registro_mantenimiento r ON v.Placa = r.Placa
+                JOIN trabajos t ON r.Trabajo = t.Trabajo
+                LEFT JOIN programacion_mantenimiento p ON r.Consecutivo_orden = p.Consecutivo_orden
+                WHERE p.Consecutivo_orden IS NULL OR r.Kilometraje + t.Periodicidad > p.Proximo_mantenimiento_km;'''
+        cursor.execute(bd)
+        bd = "SELECT * FROM programacion_mantenimiento ORDER BY Consecutivo_orden DESC"
+        cursor.execute(bd)
+        registro = cursor.fetchall()
+        return registro
+    
     def modificar_ODO(self, Placa,Fecha, Kilometraje):
         cursor = self.conexion.cursor()
         bd ='''INSERT INTO odometro (Placa, Fecha, Kilometraje)
@@ -72,11 +109,9 @@ class Comunicacion():
         self.conexion.commit()
         cursor.close()
 
-    def actualizar_trab(self, trabajo, tipo, periodicidad):
+    def actualizar_trab(self,trabajo,Tipo_mantenimiento,Periodicidad,consulta):
         cursor = self.conexion.cursor()
-        bd ='''INSERT INTO trabajos (Trabajo, Tipo_mantenimiento, Periodicidad)
-            VALUES ('{}', '{}', '{}')
-            ON DUPLICATE KEY UPDATE Fecha='{}', Kilometraje='{}' '''.format(trabajo, tipo, periodicidad,tipo, periodicidad)
+        bd ='''UPDATE trabajos SET Trabajo="{}",Tipo_mantenimiento="{}",Periodicidad="{}" WHERE Trabajo="{}"'''.format(trabajo,Tipo_mantenimiento,Periodicidad,consulta)
         cursor.execute(bd)
         self.conexion.commit()
         cursor.close()
@@ -84,6 +119,13 @@ class Comunicacion():
     def eliminar_mante(self,consulta):
         cursor = self.conexion.cursor()
         bd='''DELETE FROM registro_mantenimiento WHERE Consecutivo_orden = {}'''.format(consulta)
+        cursor.execute(bd)
+        self.conexion.commit()    
+        cursor.close()
+
+    def eliminar_trabajo1(self,consulta):
+        cursor = self.conexion.cursor()
+        bd='''DELETE FROM trabajos WHERE Trabajo = "{}"'''.format(consulta)
         cursor.execute(bd)
         self.conexion.commit()    
         cursor.close()
@@ -99,6 +141,13 @@ class Comunicacion():
     def buscar_trab(self, consulta):
         cursor = self.conexion.cursor()
         bd = "SELECT * FROM trabajos WHERE Trabajo='{}'".format(consulta) 
+        cursor.execute(bd)
+        registro = cursor.fetchall()
+        return registro
+    
+    def buscar_vh(self, consulta):
+        cursor = self.conexion.cursor()
+        bd = "SELECT * FROM vehiculos WHERE Placa='{}'".format(consulta) 
         cursor.execute(bd)
         registro = cursor.fetchall()
         return registro
@@ -165,20 +214,6 @@ class Comunicacion():
         return nombrex
 
     
-
-
-    
-    
-    def registrar_vehiculo(self, Placa, Conductor, Marca, Kilometraje):
-        cursor = self.conexion.cursor()
-        #bd='''INSERT INTO vehiculo (Placa, Conductor, Marca, Kilometraje)
-        #VALUES('{}', '{}','{}', '{}','{}')'''.format(Placa, Conductor, Marca, Kilometraje)
-        bd='''INSERT INTO registro_mantenimiento (registro_mantenimiento.Placa, Fecha, Kilometraje, Trabajo, Repuesto)
-            VALUES ('{}', '{}', '{}', '{}', '{}', '{}') ON DUPLICATE KEY 
-            UPDATE registro_mantenimiento.Placa = '{}',Fecha='{}', Kilometraje='{}', Trabajo='{}', Repuesto='{}' '''.format(Placa, Conductor, Marca, Kilometraje)
-        cursor.execute(bd)
-        self.conexion.commit()    
-        cursor.close()
 
     def registrar_usuario(self, user_name, password):
         cursor = self.conexion.cursor()

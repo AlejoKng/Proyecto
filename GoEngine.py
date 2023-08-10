@@ -77,7 +77,7 @@ class VentanadeInicio(QMainWindow):
         #print(contra,"=",self.comp)
         if(self.comp==contra):
             self.close()
-            self.VentanaOrden=VentanaOrden()
+            self.VentanaOrden=VentanadePrincipal()
             self.VentanaOrden.show()
 
 class VentanadePrincipal(QMainWindow):
@@ -356,6 +356,7 @@ class VentanaOrden(QMainWindow):
 
         # Pagina de Programacion de Mantenimiento
         self.bt_programacion.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_program))
+        self.bt_programacion.clicked.connect(self.todo_base_PRO)
         
         
         
@@ -553,6 +554,20 @@ class VentanaOrden(QMainWindow):
                 self.tabla_pgElim_OT.setItem(tablerow,1,QtWidgets.QTableWidgetItem(row[5]))
                 tablerow+=1
     ######    PAGINA PROGRAMA   ######
+    def todo_base_PRO(self):
+        datos=self.base_datos.todo_base_PRO()
+        i=len(datos)
+        #print(datos)
+        self.table_pgPro_Vh.setRowCount(i)
+        tablerow=0
+        for row in datos:
+            self.table_pgPro_Vh.setItem(tablerow,0,QtWidgets.QTableWidgetItem(str(row[0])))
+            self.table_pgPro_Vh.setItem(tablerow,1,QtWidgets.QTableWidgetItem(str(row[1])))
+            self.table_pgPro_Vh.setItem(tablerow,2,QtWidgets.QTableWidgetItem(str(row[2])))
+            self.table_pgPro_Vh.setItem(tablerow,3,QtWidgets.QTableWidgetItem(str(row[3])))
+
+            tablerow+=1
+    
     
         
 class VentanadeTrabajos(QMainWindow):
@@ -583,6 +598,7 @@ class VentanadeTrabajos(QMainWindow):
 
         # Ancho de columna adaptable
         self.tabla_pgBD_OT.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.tabla_pgElim_OT.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         
         #Mover ventana
         self.frame_superior.mouseMoveEvent = self.mover_ventana
@@ -606,6 +622,8 @@ class VentanadeTrabajos(QMainWindow):
         opciones = self.base_datos.trae_trab()
         self.completertrab.setModel(QtCore.QStringListModel(opciones))
         self.tBox_pgMod_Con.setCompleter(self.completertrab)
+        self.tBox_pgElim_Con.setCompleter(self.completertrab)
+
 
         # Conexiones por pagina tBox_pgMod_Con
         # Pagina Base de Datos (page_base_datos)
@@ -621,16 +639,17 @@ class VentanadeTrabajos(QMainWindow):
         # Pagina Modificar Trabajo (page_actualizar)
         self.bt_actualizar.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_actualizar))
         # Botones en la Pagina
-        self.bt_pgMod_Con.clicked.connect(self.modificar_trab)
-        self.bt_pgMod_Save.clicked.connect(self.actualizar_trab)
+        self.bt_pgMod_Con.clicked.connect(self.actualizar_trab)
+        self.bt_pgMod_Save.clicked.connect(self.modificar_trab)
+        self.bt_pgMod_Save.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_actualizar))
 
-        """
+        
         # Pagina Eliminar de Trabajo (page_eliminar)
         self.bt_eliminar.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_eliminar))
         # Botones en la Pagina
-        self.bt_pgElim_Con.clicked.connect(self.consulElim_mante)
-        self.bt_pgElim_Save.clicked.connect(self.eliminar_mante)
-        """
+        self.bt_pgElim_Con.clicked.connect(self.consulElim_tra)
+        self.bt_pgElim_Save.clicked.connect(self.eliminar_tra)
+        
         
 
     def control_bt_minimizar(self):
@@ -751,68 +770,66 @@ class VentanadeTrabajos(QMainWindow):
     ######      PAGINA MODIFICAR        ######
 
     def modificar_trab(self):
-        consulta=self.tBox_pgMod_Con.text()
+        consulta=self.tBox_pgMod_Plac.text()
         consulta=str(consulta)
-        self.orden=self.base_datos.buscar_trab(consulta)
+        self.orden=self.base_datos.buscar_vh(consulta)
         if (len(self.orden)!=0):
             #print(self.orden[0][1])
-            self.tBox_pgAct_Nom.setText(str(self.orden[0][0]))
-            self.tBox_pgAct_Tip.setText(str(self.orden[0][1]))
-            self.tBox_pgAct_Per.setText(str(self.orden[0][2]))
+            self.tBox_pgMod_Pla.setText(str(self.orden[0][0]))
+            self.tBox_pgMod_Con.setText(str(self.orden[0][1]))
+            self.tBox_pgMod_Mar.setText(str(self.orden[0][2]))
+            self.tBox_pgMod_Km.setText(int(str(self.orden[0][2])))
 
         else:
-            self.lb_pgMod_Signal.setText('Dato no encontrado')
+            self.label_14.setText('Dato no encontrado')
         
-    def actualizar_trab(self):################################################################
+    def actualizar_trab(self):
         trabajo =self.tBox_pgMod_Con.text()
+        nuevotrabajo =self.tBox_pgAct_Nom.text()
         tipo = self.tBox_pgAct_Tip.text()
         periodicidad = int(self.tBox_pgAct_Per.text().upper())
-        if trabajo!='' and tipo!='' and periodicidad!='':
-            self.base_datos.actualizar_trab( trabajo, tipo, periodicidad)
+        if trabajo!='' and nuevotrabajo!='' and tipo!='' and periodicidad!='':
+            self.base_datos.actualizar_trab( nuevotrabajo, tipo, periodicidad,trabajo)
             self.lb_pgMod_Signal.setText('Trabajo Registrado')
-            trabajo =self.tBox_pgAct_Nom.clear()
+            var=self.tBox_pgAct_Nom.text()
+
+            self.tBox_pgMod_Con.setText(str(var))
+            nuevotrabajo =self.tBox_pgAct_Nom.clear()
             tipo =self.tBox_pgAct_Tip.clear()
             periodicidad =self.tBox_pgAct_Per.clear()
         else:
             self.lb_pgMod_Signal.setText('Hay Espacios Vacios')
-    
     ######    PAGINA ELIMINAR   ######
-    def consulElim_mante(self):
-        consulta=self.tBox_pgElim_Con.text().upper()
+    def consulElim_tra(self):
+        consulta=self.tBox_pgElim_Con.text()
         consulta=str(consulta)
-        datos=self.base_datos.base_un_filtro(consulta)
+        datos=self.base_datos.buscar_trab(consulta)
         i=len(datos)
         self.tabla_pgElim_OT.setRowCount(i)
         tablerow=0
         for row in datos:
             self.tabla_pgElim_OT.setItem(tablerow,0,QtWidgets.QTableWidgetItem(str(row[0])))
-            self.tabla_pgElim_OT.setItem(tablerow,3,QtWidgets.QTableWidgetItem(str(row[2])))
-            self.tabla_pgElim_OT.setItem(tablerow,2,QtWidgets.QTableWidgetItem(row[1].strftime("%d-%m-%Y")))
-            self.tabla_pgElim_OT.setItem(tablerow,4,QtWidgets.QTableWidgetItem(row[3]))
-            self.tabla_pgElim_OT.setItem(tablerow,5,QtWidgets.QTableWidgetItem(row[4]))
-            self.tabla_pgElim_OT.setItem(tablerow,1,QtWidgets.QTableWidgetItem(row[5]))
+            self.tabla_pgElim_OT.setItem(tablerow,1,QtWidgets.QTableWidgetItem(str(row[1])))
+            self.tabla_pgElim_OT.setItem(tablerow,2,QtWidgets.QTableWidgetItem(str(row[2])))
             tablerow+=1
 
-
-    def eliminar_mante(self):
-        consulta=self.tBox_pgElim_Con.text()
+    def eliminar_tra(self):
+        consulta=str(self.tBox_pgElim_Con.text())
         if consulta!='':
-            self.base_datos.eliminar_mante(consulta)
-            self.lb_pgElim_Save.setText('Mantenimiento Eliminado')
-            consulta=self.tBox_pgElim_Con.text().upper()
-            consulta=str(consulta)
-            datos=self.base_datos.base_un_filtro(consulta)
-            i=len(datos)
-            self.tabla_pgElim_OT.setRowCount(i)
-            tablerow=0
-            for row in datos:
-                self.tabla_pgElim_OT.setItem(tablerow,0,QtWidgets.QTableWidgetItem(str(row[0])))
-                self.tabla_pgElim_OT.setItem(tablerow,3,QtWidgets.QTableWidgetItem(str(row[2])))
-                self.tabla_pgElim_OT.setItem(tablerow,2,QtWidgets.QTableWidgetItem(row[1].strftime("%d-%m-%Y")))
-                self.tabla_pgElim_OT.setItem(tablerow,4,QtWidgets.QTableWidgetItem(row[3]))
-                self.tabla_pgElim_OT.setItem(tablerow,5,QtWidgets.QTableWidgetItem(row[4]))
-                self.tabla_pgElim_OT.setItem(tablerow,1,QtWidgets.QTableWidgetItem(row[5]))
-                tablerow+=1
+            self.base_datos.eliminar_trabajo1(consulta)
+            self.label_23.setText('Trabajo Eliminado')
+            consulta=self.tBox_pgElim_Con.text()
+        consulta=str(consulta)
+        datos=self.base_datos.buscar_trab(consulta)
+        i=len(datos)
+        self.tabla_pgElim_OT.setRowCount(i)
+        tablerow=0
+        for row in datos:
+            self.tabla_pgElim_OT.setItem(tablerow,0,QtWidgets.QTableWidgetItem(str(row[0])))
+            self.tabla_pgElim_OT.setItem(tablerow,1,QtWidgets.QTableWidgetItem(str(row[1])))
+            self.tabla_pgElim_OT.setItem(tablerow,2,QtWidgets.QTableWidgetItem(str(row[2])))
+            tablerow+=1
+        
 
 class Ventanadevehiculo(QMainWindow):
     def __init__(self):
@@ -823,6 +840,8 @@ class Ventanadevehiculo(QMainWindow):
         self.base_datos = Comunicacion()
 
         #Botones Superiores
+        self.bt_menu.clicked.connect(self.mover_menu)
+        self.bt_naveg.clicked.connect(self.mover_navegar)
         self.bt_minimizar.clicked.connect(self.control_bt_minimizar)
         self.bt_colapsar.clicked.connect(self.control_bt_normal)
         self.bt_cerrar.clicked.connect(lambda: self.close())
@@ -839,8 +858,8 @@ class Ventanadevehiculo(QMainWindow):
         self.grip.resize(self.gripSize,self.gripSize)
 
         # Ancho de columna adaptable
-        self.tabla_pgElim_OT.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.tabla_pgBD_OT.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.tabla_pgElim_OT.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         
         #Mover ventana
         self.frame_superior.mouseMoveEvent = self.mover_ventana
@@ -852,6 +871,48 @@ class Ventanadevehiculo(QMainWindow):
         self.bt_nav_prin.clicked.connect(self.navego_prin)
         self.bt_nav_man.clicked.connect(self.navego_man)
         self.bt_ingreso.clicked.connect(self.navego_ing)
+        
+       # Configurar el completer
+        self.completervehi = QCompleter()
+        self.completervehi.setCaseSensitivity(False)  # No distinguir mayúsculas de minúsculas
+        self.completervehi.setModelSorting(QCompleter.CaseInsensitivelySortedModel)  # Ordenar insensible a mayúsculas/minúsculas
+        self.completervehi.setFilterMode(Qt.MatchContains)
+        # 1. Obtener la lista de opciones para el completer
+        # 2. Establecer la lista de opciones en el completer
+        # 3. Asignar el completer al QLineEdit
+        opciones = self.base_datos.trae_vehi()
+        self.completervehi.setModel(QtCore.QStringListModel(opciones))
+        self.tBox_pgReg_Pla.setCompleter(self.completervehi)
+        self.tBox_pgMod_Plac.setCompleter(self.completervehi)
+        self.tBox_pgElim_Con.setCompleter(self.completervehi)
+        
+
+
+        # Conexiones por pagina tBox_pgMod_Con
+        # Pagina Base de Datos (page_base_datos)
+        self.bt_database.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_base_datos))
+        # Botones en la Pagina
+        self.bt_pgBD_Ref.clicked.connect(self.mostrar_base)
+        
+        # Pagina Registro de Trabajo (page_registrar)
+        self.bt_registrar.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_registrar))
+        # Botones en la Pagina
+        self.bt_pgReg_Save.clicked.connect(self.registrar_trabajo)
+        
+        # Pagina Modificar Trabajo (page_actualizar)
+        self.bt_actualizar.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_actualizar))
+        # Botones en la Pagina
+        self.bt_pgMod_Pla.clicked.connect(self.modificar_trab)
+        self.bt_pgMod_Save.clicked.connect(self.actualizar_trab)
+        self.bt_pgMod_Save.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_actualizar))
+
+        
+        # Pagina Eliminar de Trabajo (page_eliminar)
+        self.bt_eliminar.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.page_eliminar))
+        # Botones en la Pagina
+        self.bt_pgElim_Con.clicked.connect(self.consulElim_tra)
+        self.bt_pgElim_Save.clicked.connect(self.eliminar_tra)
+        
         
 
     def control_bt_minimizar(self):
@@ -940,6 +1001,99 @@ class Ventanadevehiculo(QMainWindow):
         self.close()
         self.VentanadeInicio=VentanadeInicio()
         self.VentanadeInicio.show()
+    
+    
+    ######    PAGINA BASEDATOS   ######
+    def mostrar_base(self):
+        datos=self.base_datos.mostrar_base_vehiculos()
+        i=len(datos)
+        print(datos)
+        self.tabla_pgBD_OT.setRowCount(i)
+        tablerow=0
+        for row in datos:
+            self.tabla_pgBD_OT.setItem(tablerow,0,QtWidgets.QTableWidgetItem(str(row[0])))
+            self.tabla_pgBD_OT.setItem(tablerow,1,QtWidgets.QTableWidgetItem(str(row[1])))
+            self.tabla_pgBD_OT.setItem(tablerow,2,QtWidgets.QTableWidgetItem(str(row[2])))
+            self.tabla_pgBD_OT.setItem(tablerow,3,QtWidgets.QTableWidgetItem(str(row[3])))
+            tablerow+=1
+    ######    PAGINA REGISTRO   ######
+    def registrar_trabajo(self):
+        placa =self.tBox_pgReg_Pla.text().upper()
+        marca = self.tBox_pgReg_Mar.text()
+        conductor = self.tBox_pgReg_Cond.text()
+        kilometraje = int(self.tBox_pgReg_Km.text().upper())
+        if placa!='' and marca!='' and conductor!=''and kilometraje!='':
+            self.base_datos.registrar_vehiculo( placa, marca, conductor, kilometraje)
+            self.lb_pgReg_Save.setText('Vehiculo Registrado')
+            placa =self.tBox_pgReg_Pla.clear()
+            marca = self.tBox_pgReg_Mar.clear()
+            conductor = self.tBox_pgReg_Cond.clear()
+            kilometraje = self.tBox_pgReg_Km.clear()
+        else:
+            self.lb_pgReg_Save.setText('Hay Espacios Vacios')
+
+    ######      PAGINA MODIFICAR        ######
+
+    def modificar_trab(self):
+        consulta=self.tBox_pgMod_Con.text()
+        consulta=str(consulta)
+        self.orden=self.base_datos.buscar_trab(consulta)
+        if (len(self.orden)!=0):
+            #print(self.orden[0][1])
+            self.tBox_pgAct_Nom.setText(str(self.orden[0][0]))
+            self.tBox_pgAct_Tip.setText(str(self.orden[0][1]))
+            self.tBox_pgAct_Per.setText(str(self.orden[0][2]))
+
+        else:
+            self.lb_pgMod_Signal.setText('Dato no encontrado')
+        
+    def actualizar_trab(self):
+        trabajo =self.tBox_pgMod_Con.text()
+        nuevotrabajo =self.tBox_pgAct_Nom.text()
+        tipo = self.tBox_pgAct_Tip.text()
+        periodicidad = int(self.tBox_pgAct_Per.text().upper())
+        if trabajo!='' and nuevotrabajo!='' and tipo!='' and periodicidad!='':
+            self.base_datos.actualizar_trab( nuevotrabajo, tipo, periodicidad,trabajo)
+            self.lb_pgMod_Signal.setText('Trabajo Registrado')
+            var=self.tBox_pgAct_Nom.text()
+
+            self.tBox_pgMod_Con.setText(str(var))
+            nuevotrabajo =self.tBox_pgAct_Nom.clear()
+            tipo =self.tBox_pgAct_Tip.clear()
+            periodicidad =self.tBox_pgAct_Per.clear()
+        else:
+            self.lb_pgMod_Signal.setText('Hay Espacios Vacios')
+    ######    PAGINA ELIMINAR   ######
+    def consulElim_tra(self):
+        consulta=self.tBox_pgElim_Con.text()
+        consulta=str(consulta)
+        datos=self.base_datos.buscar_trab(consulta)
+        i=len(datos)
+        self.tabla_pgElim_OT.setRowCount(i)
+        tablerow=0
+        for row in datos:
+            self.tabla_pgElim_OT.setItem(tablerow,0,QtWidgets.QTableWidgetItem(str(row[0])))
+            self.tabla_pgElim_OT.setItem(tablerow,1,QtWidgets.QTableWidgetItem(str(row[1])))
+            self.tabla_pgElim_OT.setItem(tablerow,2,QtWidgets.QTableWidgetItem(str(row[2])))
+            tablerow+=1
+
+    def eliminar_tra(self):
+        consulta=str(self.tBox_pgElim_Con.text())
+        if consulta!='':
+            self.base_datos.eliminar_trabajo1(consulta)
+            self.label_23.setText('Trabajo Eliminado')
+            consulta=self.tBox_pgElim_Con.text()
+        consulta=str(consulta)
+        datos=self.base_datos.buscar_trab(consulta)
+        i=len(datos)
+        self.tabla_pgElim_OT.setRowCount(i)
+        tablerow=0
+        for row in datos:
+            self.tabla_pgElim_OT.setItem(tablerow,0,QtWidgets.QTableWidgetItem(str(row[0])))
+            self.tabla_pgElim_OT.setItem(tablerow,1,QtWidgets.QTableWidgetItem(str(row[1])))
+            self.tabla_pgElim_OT.setItem(tablerow,2,QtWidgets.QTableWidgetItem(str(row[2])))
+            tablerow+=1
+        
 
 class VentanadeRepuestos(QMainWindow):
     def __init__(self):
@@ -1070,6 +1224,6 @@ class VentanadeRepuestos(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    mi_app = VentanadeTrabajos()
+    mi_app = VentanadeInicio()
     mi_app.show()
     app.exec_()
